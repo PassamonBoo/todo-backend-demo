@@ -1,0 +1,10 @@
+# App environment
+environment:
+
+# Dogstatsd metric URL
+dogstatsd_metric_url:
+
+# Tag for the middleware docker image
+tag:
+namespace: default
+

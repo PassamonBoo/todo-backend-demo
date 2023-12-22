@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: todo-backend-poc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-backend-poc
+  template:
+    metadata:
+      labels:
+        app: todo-backend-poc
+    spec:
+      containers:
+        - name: todo-backend
+          image: passamonguildfi/todo-backend:dcqbdotsxy
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DD_AGENT_HOST
+              value: datadog
+         
